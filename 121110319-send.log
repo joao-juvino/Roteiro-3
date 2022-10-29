@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-10-25T09:20:10.551-0300</date>
+  <logger>JOAO PEDRO JUVINO DOS SANTOS</logger>
+  <level>FINE</level>
+  <message>File 121110319-JOAO PEDRO JUVINO DOS SANTOS.zip was received. It was sent by JOAO PEDRO JUVINO DOS SANTOS from IP 150.165.42.123 at 25-10-2022 09*20*10</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-10-28T14:53:38.633-0300</date>
+  <logger>JOAO PEDRO JUVINO DOS SANTOS</logger>
+  <level>FINE</level>
+  <message>File 121110319-JOAO PEDRO JUVINO DOS SANTOS.zip was received. It was sent by JOAO PEDRO JUVINO DOS SANTOS from IP 192.168.1.104 at 28-10-2022 14*53*38</message>
+</record>

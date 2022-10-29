@@ -1,7 +1,5 @@
 package sorting.linearSorting;
 
-import java.util.Arrays;
-
 import sorting.AbstractSorting;
 
 /**
@@ -27,9 +25,12 @@ public class CountingSort extends AbstractSorting<Integer> {
 		/**
 		 * Tratamento de alguns erros
 		 */
-		if (array == null) return;
-		if (array.length == 0) return;
-		if (leftIndex >= rightIndex) return;
+		if (array == null)
+			return;
+		if (array.length == 0)
+			return;
+		if (leftIndex >= rightIndex)
+			return;
 
 		/**
 		 * Calculando o máximo e mínimo do array
@@ -37,23 +38,20 @@ public class CountingSort extends AbstractSorting<Integer> {
 		Integer max = array[leftIndex];
 		Integer min = array[leftIndex];
 		for (int i = 1; i <= rightIndex; i++) {
-			if (array[i] > max) max = array[i];
-			if (array[i] < min) min = array[i];
+			if (array[i] > max)
+				max = array[i];
+			if (array[i] < min)
+				min = array[i];
 		}
 
 		/**
-		 * Calculando o deslocamento
-		 */
-		Integer des = min < 0 ? -min : 0;
-				
-		/**
 		 * Preenchendo as frequências
 		 */
-		int[] freq = new int[max - min + des + 1];
+		int[] freq = new int[max + 1];
 		for (int j = leftIndex; j <= rightIndex; j++) {
-			freq[array[j] + des - min]++;
+			freq[array[j]]++;
 		}
-		
+
 		/**
 		 * Fazendo a soma acumulativa
 		 */
@@ -66,15 +64,17 @@ public class CountingSort extends AbstractSorting<Integer> {
 		 */
 		Integer[] ordArray = new Integer[rightIndex - leftIndex + 1];
 		for (int l = rightIndex; l >= leftIndex; l--) {
-			ordArray[freq[array[l] - min + des] - 1] = array[l];
-			freq[array[l] - min + des] -= 1;
+			ordArray[freq[array[l]] - 1] = array[l];
+			freq[array[l]] -= 1;
 		}
 
 		/**
 		 * Adicionando os valores ordenados no array
 		 */
-		for(int m = leftIndex; m <= rightIndex; m++){
-			array[m] = ordArray[m];
+		int ordIndex = 0;
+		for (int m = leftIndex; m <= rightIndex; m++) {
+			array[m] = ordArray[ordIndex];
+			ordIndex++;
 		}
 
 	}

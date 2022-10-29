@@ -1,7 +1,5 @@
 package sorting.linearSorting;
 
-import java.util.Arrays;
-
 import sorting.AbstractSorting;
 
 /**
@@ -37,16 +35,13 @@ public class ExtendedCountingSort extends AbstractSorting<Integer> {
 		}
 
 		/**
-		 * Calculando o deslocamento
+		 * Preenchendo as frequências..
+		 * No extended counting sort, o cálculo do tamanho do array de frequências é otimizado subtraindo-se
+		 * o valor do mínimo desse cálculo.
 		 */
-		Integer des = min < 0 ? -min : 0;
-
-		/**
-		 * Preenchendo as frequências
-		 */
-		int[] freq = new int[max - min + des + 1];
+		int[] freq = new int[max - min + 1];
 		for (int j = leftIndex; j <= rightIndex; j++) {
-			freq[array[j] + des - min]++;
+			freq[array[j] - min]++;
 		}
 
 		/**
@@ -61,8 +56,8 @@ public class ExtendedCountingSort extends AbstractSorting<Integer> {
 		 */
 		Integer[] ordArray = new Integer[rightIndex - leftIndex + 1];
 		for (int l = rightIndex; l >= leftIndex; l--) {
-			ordArray[freq[array[l] - min + des] - 1] = array[l];
-			freq[array[l] - min + des] -= 1;
+			ordArray[freq[array[l] - min] - 1] = array[l];
+			freq[array[l] - min] -= 1;
 		}
 
 		/**
